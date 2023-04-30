@@ -44,6 +44,7 @@ class RandomCoalitionProbability(CoalitionProbability):
                 t += 1
 
     def get_probability(self, coalition: tuple):
+        coalition = tuple(sorted(coalition))
         for i in coalition:
             if i not in self.support:
                 raise KeyError(f"Data source {i} does not have a staying probability specified.")

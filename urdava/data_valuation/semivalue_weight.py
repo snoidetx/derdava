@@ -10,7 +10,7 @@ def shapley_weight(n, s):
 
 
 def banzhaf_weight(n, s):
-    return comb(n, s) / (2 ** n)
+    return comb(n - 1, s) / (2 ** (n - 1))
 
 
 def beta_weight(n, s, alpha, beta):
