@@ -48,7 +48,6 @@ class ValuableModel:
                                       **kwargs)
         elif data_valuation_function == "012-mcmc robust beta":
             return self.zot_mcmc_urdv(prior_data_valuation_function="beta",
-                                      alpha=kwargs["alpha"], beta=kwargs["beta"],
                                       **kwargs)
 
         else:

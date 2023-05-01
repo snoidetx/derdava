@@ -21,7 +21,7 @@ def add_classification_noise(y: np.ndarray, noise_level: float=0.2):
     if not 0 <= noise_level <= 1:
         raise ValueError("Noise level must be between 0 and 1.")
 
-    labels = set(y)
+    labels = set(y.tolist())
     has_noises = np.random.binomial(1, noise_level, len(y))
     for i in range(len(y)):
         if has_noises[i]:

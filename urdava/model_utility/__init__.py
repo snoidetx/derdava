@@ -47,7 +47,7 @@ class IClassificationModel(ModelUtilityFunction):
         return self.model.fit(X_train, y_train).score(self.X_test, self.y_test)
 
 
-model_knn = KNeighborsClassifier()
-model_logistic_regression = LogisticRegression()
-model_linear_svm = make_pipeline(StandardScaler(), LinearSVC())
-model_gaussian_nb = GaussianNB()
+model_knn = lambda: KNeighborsClassifier()
+model_logistic_regression = lambda: LogisticRegression()
+model_linear_svm = lambda: make_pipeline(StandardScaler(), LinearSVC(tol=1e-5, max_iter=100000))
+model_gaussian_nb = lambda: GaussianNB()
