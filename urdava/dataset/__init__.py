@@ -147,12 +147,3 @@ def _make_train_data(root, label, X, y, width=50, height=50, cnt=100):
         y.append(label)
 
         t += 1
-
-
-def generate_random_data_sources(X, y, num_of_data_sources=10):
-    data_sources = {}
-    n = len(X) // num_of_data_sources
-    for i in range(num_of_data_sources):
-        data_sources[i] = (X[n * i:n * i + n, :].copy(), y[n * i:n * i + n].copy())
-
-    return data_sources
