@@ -132,7 +132,7 @@ class ValuableModel:
     def zot_mcmc_urdv(self, prior_data_valuation_function="shapley", **kwargs):
         t = 0  # iterations
         statistics = {i: 0 for i in self.support}  # gelman-rubin statistic
-        coalitional_probability = kwargs['coalition_probability']
+        coalition_probability = kwargs['coalition_probability']
         tol = kwargs['tolerance']
         max_iter = 4000
         m_chains = 10
