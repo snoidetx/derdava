@@ -38,16 +38,16 @@ class ValuableModel:
         # 012-MCMC URDaVa
         elif data_valuation_function == "012-mcmc robust loo":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="loo",
-                                      tolerance=kwargs["tolerance"], **kwargs)
+                                      **kwargs)
         elif data_valuation_function == "012-mcmc robust shapley":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="shapley",
-                                      tolerance=kwargs["tolerance"], **kwargs)
+                                      **kwargs)
         elif data_valuation_function == "012-mcmc robust banzhaf":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="banzhaf",
-                                      tolerance=kwargs["tolerance"], **kwargs)
+                                      **kwargs)
         elif data_valuation_function == "012-mcmc robust beta":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="beta",
-                                      tolerance=kwargs["tolerance"], alpha=kwargs["alpha"], beta=kwargs["beta"],
+                                      alpha=kwargs["alpha"], beta=kwargs["beta"],
                                       **kwargs)
 
         else:
