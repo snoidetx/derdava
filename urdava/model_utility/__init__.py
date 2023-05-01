@@ -39,8 +39,8 @@ class IClassificationModel(ModelUtilityFunction):
             if i not in self.data_sources:
                 raise KeyError(f"Data source {i} does not exist in support set.")
 
-        X_train = np.concatenate((self.data_sources.get(i)[0] for i in coalition))
-        y_train = np.concatenate((self.data_sources.get(i)[1] for i in coalition))
+        X_train = np.concatenate([self.data_sources.get(i)[0] for i in coalition])
+        y_train = np.concatenate([self.data_sources.get(i)[1] for i in coalition])
         return self.model.fit(X_train, y_train).score(self.X_test, self.y_test)
 
 
