@@ -37,16 +37,16 @@ class ValuableModel:
                                      alpha=kwargs["alpha"], beta=kwargs["beta"])
         # 012-MCMC URDaVa
         elif data_valuation_function == "012-mcmc robust loo":
-            return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="loo",
+            return self.zot_mcmc_urdv(prior_data_valuation_function="loo",
                                       **kwargs)
         elif data_valuation_function == "012-mcmc robust shapley":
-            return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="shapley",
+            return self.zot_mcmc_urdv(prior_data_valuation_function="shapley",
                                       **kwargs)
         elif data_valuation_function == "012-mcmc robust banzhaf":
-            return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="banzhaf",
+            return self.zot_mcmc_urdv(prior_data_valuation_function="banzhaf",
                                       **kwargs)
         elif data_valuation_function == "012-mcmc robust beta":
-            return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="beta",
+            return self.zot_mcmc_urdv(prior_data_valuation_function="beta",
                                       alpha=kwargs["alpha"], beta=kwargs["beta"],
                                       **kwargs)
 
@@ -129,10 +129,10 @@ class ValuableModel:
 
         return scores
 
-    def zot_mcmc_urdv(self, coalition_probability: CoalitionProbability,
-                      prior_data_valuation_function="shapley", **kwargs):
+    def zot_mcmc_urdv(self, prior_data_valuation_function="shapley", **kwargs):
         t = 0  # iterations
         statistics = {i: 0 for i in self.support}  # gelman-rubin statistic
+        coalitional_probability = kwargs['coalition_probability']
         tol = kwargs['tolerance']
         max_iter = 4000
         m_chains = 10
