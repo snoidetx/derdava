@@ -37,6 +37,8 @@ class IClassificationModel(ModelUtilityFunction):
         coalition = tuple(sorted(coalition))
         if len(coalition) == 0:
             return 0
+        
+        model = self.model()
 
         for i in coalition:
             if i not in self.data_sources:
@@ -44,7 +46,7 @@ class IClassificationModel(ModelUtilityFunction):
 
         X_train = np.concatenate([self.data_sources.get(i)[0] for i in coalition])
         y_train = np.concatenate([self.data_sources.get(i)[1] for i in coalition])
-        return self.model.fit(X_train, y_train).score(self.X_test, self.y_test)
+        return model.fit(X_train, y_train).score(self.X_test, self.y_test)
 
 
 model_knn = lambda: KNeighborsClassifier()
