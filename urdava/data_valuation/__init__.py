@@ -38,16 +38,17 @@ class ValuableModel:
         # 012-MCMC URDaVa
         elif data_valuation_function == "012-mcmc robust loo":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="loo",
-                                      tolerance=kwargs["tolerance"])
+                                      tolerance=kwargs["tolerance"], **kwargs)
         elif data_valuation_function == "012-mcmc robust shapley":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="shapley",
-                                      tolerance=kwargs["tolerance"])
+                                      tolerance=kwargs["tolerance"], **kwargs)
         elif data_valuation_function == "012-mcmc robust banzhaf":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="banzhaf",
-                                      tolerance=kwargs["tolerance"])
+                                      tolerance=kwargs["tolerance"], **kwargs)
         elif data_valuation_function == "012-mcmc robust beta":
             return self.zot_mcmc_urdv(kwargs["coalition_probability"], prior_data_valuation_function="beta",
-                                      tolerance=kwargs["tolerance"], alpha=kwargs["alpha"], beta=kwargs["beta"])
+                                      tolerance=kwargs["tolerance"], alpha=kwargs["alpha"], beta=kwargs["beta"],
+                                      **kwargs)
 
         else:
             raise ValueError("Data valuation function does not exist or arguments are invalid.")
@@ -143,7 +144,7 @@ class ValuableModel:
             samples[i] = []
 
         while (not check_gelman_rubin(statistics, tol)[0]) and t <= max_iter:
-            if t % 50 == 0:
+            if t % 50 == 0 and not kwargs.get('suppress_progress', False):
                 print(f"====> Monte-Carlo Round {t} - Average convergence rate = "
                       f"{np.mean(np.array(list(statistics.values())))}")
                 num_of_not_converged_data_sources = check_gelman_rubin(statistics, tol)[1]

@@ -44,7 +44,6 @@ def gelman_rubin(samples: dict, m_chains: int):
 
 
 def check_gelman_rubin(statistics, tolerance):
-    print(statistics)
     num_of_not_converged_data_sources = 0
     for i in statistics:
         if statistics[i] > tolerance or statistics[i] < 1 / tolerance:
