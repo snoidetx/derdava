@@ -2,6 +2,7 @@ import numpy as np
 from abc import ABC, abstractmethod
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import LinearSVC
@@ -43,6 +44,7 @@ class IClassificationModel(ModelUtilityFunction):
         return self.model.fit(X_train, y_train).score(self.X_test, self.y_test)
 
 
+model_knn = KNeighborsClassifier()
 model_logistic_regression = LogisticRegression()
 model_linear_svm = make_pipeline(StandardScaler(), LinearSVC())
 model_gaussian_nb = GaussianNB()
