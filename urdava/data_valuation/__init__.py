@@ -11,6 +11,7 @@ class ValuableModel:
     def __init__(self, support: tuple, model_utility_function: ModelUtilityFunction):
         self.support = support
         self.model_utility_function = model_utility_function
+        self.stored_utilities = {}
 
     def valuate(self, data_valuation_function="dummy", **kwargs):
         kwargs["tolerance"] = kwargs.get("tolerance", 1.005)
@@ -52,14 +53,23 @@ class ValuableModel:
 
         else:
             raise ValueError("Data valuation function does not exist or arguments are invalid.")
+            
+    def get_utility(self, coalition: tuple):
+        coalition = tuple(sorted(coalition))
+        if coalition in self.stored_utilities:
+            return self.stored_utilities[coalition]
+        else:
+            utility = self.model_utility_function.get_utility(coalition)
+            self.stored_utilities[coalition] = utility
+            return utility
 
     def loo(self):
         scores = {}
         coalition = list(self.support)
-        post_utility = self.model_utility_function.get_utility(tuple(coalition))
+        post_utility = self.get_utility(tuple(coalition))
         for i in self.support:
             coalition.remove(i)
-            pre_utility = self.model_utility_function.get_utility(tuple(coalition))
+            pre_utility = self.get_utility(tuple(coalition))
             scores[i] = post_utility - pre_utility
             coalition.append(i)
 
@@ -74,9 +84,9 @@ class ValuableModel:
             for card in range(len(self.support)):
                 coalitions = combinations(indices, card)
                 for coalition in coalitions:
-                    pre_utility = self.model_utility_function.get_utility(tuple(coalition))
+                    pre_utility = self.get_utility(tuple(coalition))
                     coalition = coalition + (i,)
-                    post_utility = self.model_utility_function.get_utility(tuple(coalition))
+                    post_utility = self.get_utility(tuple(coalition))
                     marginal_contribution = post_utility - pre_utility
                     scores[i] += marginal_contribution * \
                                  get_weight(len(self.support),
@@ -106,8 +116,8 @@ class ValuableModel:
                     indices.remove(s)
 
                 # marginal contribution
-                pre_utility = self.model_utility_function.get_utility(tuple(S))
-                post_utility = self.model_utility_function.get_utility(tuple(S) + (i,))
+                pre_utility = self.get_utility(tuple(S))
+                post_utility = self.get_utility(tuple(S) + (i,))
                 marginal_contribution = post_utility - pre_utility
 
                 # weight
@@ -158,7 +168,7 @@ class ValuableModel:
                 # remove d_i
                 S = {i: [] for i in self.support}
                 D_prime = {i: [] for i in self.support}
-                for data_source in self.support:
+                for data_source in self.support: 
                     outcome = zot_sampling()
                     for i in self.support:
                         if outcome == 0:
@@ -176,9 +186,9 @@ class ValuableModel:
                                 D_prime[i].append(data_source)
 
                 for i in self.support:
-                    pre_utility = self.model_utility_function.get_utility(tuple(S[i]))
+                    pre_utility = self.get_utility(tuple(S[i]))
                     S[i].append(i)
-                    post_utility = self.model_utility_function.get_utility(tuple(S[i]))
+                    post_utility = self.get_utility(tuple(S[i]))
                     marginal_contribution = post_utility - pre_utility
                     D_prime[i].append(i)
                     term_prob = coalition_probability.get_probability(D_prime[i])

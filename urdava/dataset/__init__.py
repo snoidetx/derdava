@@ -4,14 +4,14 @@ import os
 import pandas as pd
 from sklearn import datasets
 
-PATH_TO_CPU = "./cpu.csv"
-PATH_TO_CREDITCARD = "../datasets/creditcard.csv"
-PATH_TO_DIABETES = "../datasets/diabetes.csv"
-PATH_TO_FLOWER_DAISY = "../datasets/flowers/daisy"
-PATH_TO_FLOWER_SUNFLOWER = "../datasets/flowers/sunflower"
-PATH_TO_PHONEME = "../datasets/phoneme.csv"
-PATH_TO_POL = "../datasets/pol.csv"
-PATH_TO_WIND = "../datasets/wind.csv"
+PATH_TO_CPU = "urdava/cpu.csv"
+PATH_TO_CREDITCARD = "urdava/datasets/creditcard.csv"
+PATH_TO_DIABETES = "urdava/datasets/diabetes.csv"
+PATH_TO_FLOWER_DAISY = "urdava/datasets/flowers/daisy"
+PATH_TO_FLOWER_SUNFLOWER = "urdava/datasets/flowers/sunflower"
+PATH_TO_PHONEME = "urdava/datasets/phoneme.csv"
+PATH_TO_POL = "urdava/datasets/pol.csv"
+PATH_TO_WIND = "urdava/datasets/wind.csv"
 
 
 def load_dataset(name: str):
@@ -151,8 +151,8 @@ def _make_train_data(root, label, X, y, width=50, height=50, cnt=100):
 
 def generate_random_data_sources(X, y, num_of_data_sources=10):
     data_sources = {}
-    n = len(X.index) // num_of_data_sources
+    n = len(X) // num_of_data_sources
     for i in range(num_of_data_sources):
-        data_sources[i] = (X.iloc[n * i:n * i + n, :].copy(deep=True), y.iloc[n * i:n * i + n].copy(deep=True))
+        data_sources[i] = (X[n * i:n * i + n, :].copy(), y[n * i:n * i + n].copy())
 
     return data_sources
