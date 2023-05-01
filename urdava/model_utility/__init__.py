@@ -35,6 +35,9 @@ class IClassificationModel(ModelUtilityFunction):
 
     def get_utility(self, coalition: tuple):
         coalition = tuple(sorted(coalition))
+        if len(coalition) == 0:
+            return 0
+
         for i in coalition:
             if i not in self.data_sources:
                 raise KeyError(f"Data source {i} does not exist in support set.")
