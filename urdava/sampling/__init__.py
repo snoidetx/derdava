@@ -53,3 +53,29 @@ def check_gelman_rubin(statistics, tolerance):
         return False, num_of_not_converged_data_sources
     else:
         return True, 0
+
+    
+def cvar(values, lower_tail=0.6, reverse=False):
+    """
+    Arguments:
+    values - A dictionary that contains {values:probability_of_the_value};
+    lower_tail - A probability between 0 and 1 (both inclusive) that represents the tail;
+    reverse - If set to True, calculate the upper tail.
+    """
+    all_values = sorted(list(values.keys()))
+    if reverse:
+        all_values.reverse()
+        lower_tail = 1 - lower_tail
+
+    total = 0
+    prob = 0
+    for value in all_values:
+        value_prob = values[value]
+        if prob + value_prob > lower_tail:
+            total += value * (lower_tail - prob)
+            break
+        else:
+            total += value * value_prob
+            prob += value_prob
+
+    return total / lower_tail

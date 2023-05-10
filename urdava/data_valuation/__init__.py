@@ -4,7 +4,7 @@ from math import comb
 from urdava.coalition_probability import CoalitionProbability
 from urdava.data_valuation.semivalue_weight import get_weight
 from urdava.model_utility import ModelUtilityFunction
-from urdava.sampling import check_gelman_rubin, gelman_rubin, zot_sampling
+from urdava.sampling import check_gelman_rubin, gelman_rubin, zot_sampling, cvar
 
 
 class ValuableModel:
@@ -49,6 +49,29 @@ class ValuableModel:
         elif data_valuation_function == "012-mcmc robust beta":
             return self.zot_mcmc_urdv(prior_data_valuation_function="beta",
                                       **kwargs)
+        # Risk-URDaVa
+        # risk averse URDaVa
+        elif data_valuation_function == "risk averse robust shapley":
+            return self.naive_risk_averse_urdv(prior_data_valuation_function="shapley", **kwargs)
+        elif data_valuation_function == "risk averse robust banzhaf":
+            return self.naive_risk_averse_urdv(prior_data_valuation_function="banzhaf", **kwargs)
+        elif data_valuation_function == "risk averse robust beta":
+            return self.naive_risk_averse_urdv(prior_data_valuation_function="beta", **kwargs)
+        # risk seeking URDaVa
+        elif data_valuation_function == "risk seeking robust shapley":
+            return self.naive_risk_seeking_urdv(prior_data_valuation_function="shapley", **kwargs)
+        elif data_valuation_function == "risk seeking robust banzhaf":
+            return self.naive_risk_seeking_urdv(prior_data_valuation_function="banzhaf", **kwargs)
+        elif data_valuation_function == "risk seeking robust beta":
+            return self.naive_risk_seeking_urdv(prior_data_valuation_function="beta", **kwargs)
+        
+        # partial prior
+        elif data_valuation_function == "partial shapley":
+            return self.partial_prior(data_valuation_function="shapley", **kwargs)
+        elif data_valuation_function == "partial banzhaf":
+            return self.partial_prior(data_valuation_function="banzhaf", **kwargs)
+        elif data_valuation_function == "partial beta":
+            return self.partial_prior(data_valuation_function="beta", **kwargs)
 
         else:
             raise ValueError("Data valuation function does not exist or arguments are invalid.")
@@ -95,6 +118,31 @@ class ValuableModel:
                                  comb(len(self.support) - 1, card)
 
         return scores
+    
+    def partial_prior(self, data_valuation_function="shapley", **kwargs):
+        scores = {}
+        support = kwargs['partial_support']
+        for i in self.support:          
+            scores[i] = 0
+            if i not in support:
+                continue
+            indices = list(support)
+            indices.remove(i)
+            for card in range(len(support)):
+                coalitions = combinations(indices, card)
+                for coalition in coalitions:
+                    pre_utility = self.get_utility(tuple(coalition))
+                    coalition = coalition + (i,)
+                    post_utility = self.get_utility(tuple(coalition))
+                    marginal_contribution = post_utility - pre_utility
+                    scores[i] += marginal_contribution * \
+                                 get_weight(len(support),
+                                            card,
+                                            data_valuation_function=data_valuation_function,
+                                            **kwargs) / \
+                                 comb(len(support) - 1, card)
+
+        return scores
 
     def naive_urdava(self, coalition_probability: CoalitionProbability, prior_data_valuation_function="shapley", **kwargs):
         scores = {}
@@ -107,8 +155,10 @@ class ValuableModel:
                 coalitions = combinations(indices, card)
                 for coalition in coalitions:
                     all_coalitions.append(coalition)
-
+            
+            t = 0
             for S in all_coalitions:
+                t += 1
                 indices = list(self.support)
                 indices.remove(i)
                 for s in S:
@@ -143,7 +193,7 @@ class ValuableModel:
         statistics = {i: 0 for i in self.support}  # gelman-rubin statistic
         coalition_probability = kwargs['coalition_probability']
         tol = kwargs['tolerance']
-        max_iter = 4000
+        max_iter = 1000000
         m_chains = 10
         block_size = 50
         scores = {}
@@ -205,3 +255,109 @@ class ValuableModel:
 
         return scores
 
+
+    def naive_risk_averse_urdv(self, prior_data_valuation_function="shapley", **kwargs):
+        lower_tail = kwargs['lower_tail']
+        coalition_probability = kwargs['coalition_probability']
+        
+        # generate the value and probability of each coalition
+        coalition_probabilities = {}
+        for card in range(len(self.support) + 1):
+            coalitions = combinations(self.support, card)
+            for coalition in coalitions:
+                self.get_utility(coalition)
+                coalition_probabilities[coalition] = coalition_probability.get_probability(coalition)
+
+        # generate the CVaR value of each coalition
+        coalition_cvar_values = {}
+        for card in range(len(self.support) + 1):
+            coalitions = combinations(self.support, card)
+            for coalition in coalitions:
+                values = {}
+                for case in self.stored_utilities.keys():
+                    actual_coalition = []
+                    for i in coalition:
+                        if i in case:
+                            actual_coalition.append(i)
+
+                    actual_value = self.get_utility(actual_coalition)
+                    actual_prob = coalition_probabilities[case]
+                    if actual_value not in values:
+                        values[actual_value] = 0
+                    values[actual_value] += actual_prob
+
+                coalition_cvar_values[coalition] = cvar(values, lower_tail=lower_tail)
+
+        scores = {}
+        for i in self.support:
+            scores[i] = 0
+            index_set = list(self.support)
+            index_set.remove(i)
+            for card in range(len(self.support)):
+                coalitions = combinations(index_set, card)
+                for coalition in coalitions:
+                    # calculate the risk averse expectation of the coalition
+                    risk_averse_pre_join_value = coalition_cvar_values[coalition]
+                    risk_averse_post_join_value = coalition_cvar_values[tuple(sorted(coalition + (i,)))]
+                    marginal_contribution = risk_averse_post_join_value - risk_averse_pre_join_value
+                    scores[i] += marginal_contribution * \
+                                             get_weight(len(self.support),
+                                                        len(coalition),
+                                                        data_valuation_function=prior_data_valuation_function,
+                                                        **kwargs) / \
+                                             comb(len(self.support) - 1, card)
+
+        return scores
+    
+    def naive_risk_seeking_urdv(self, prior_data_valuation_function="shapley", **kwargs):
+        upper_tail = kwargs['upper_tail']
+        coalition_probability = kwargs['coalition_probability']
+        
+        # generate the value and probability of each coalition
+        coalition_probabilities = {}
+        for card in range(len(self.support) + 1):
+            coalitions = combinations(self.support, card)
+            for coalition in coalitions:
+                self.get_utility(coalition)
+                coalition_probabilities[coalition] = coalition_probability.get_probability(coalition)
+
+        # generate the CVaR value of each coalition
+        coalition_cvar_values = {}
+        for card in range(len(self.support) + 1):
+            coalitions = combinations(self.support, card)
+            for coalition in coalitions:
+                values = {}
+                for case in self.stored_utilities.keys():
+                    actual_coalition = []
+                    for i in coalition:
+                        if i in case:
+                            actual_coalition.append(i)
+
+                    actual_value = self.get_utility(actual_coalition)
+                    actual_prob = coalition_probabilities[case]
+                    if actual_value not in values:
+                        values[actual_value] = 0
+                    values[actual_value] += actual_prob
+
+                coalition_cvar_values[coalition] = cvar(values, lower_tail=1-upper_tail, reverse=True)
+
+        scores = {}
+        for i in self.support:
+            scores[i] = 0
+            index_set = list(self.support)
+            index_set.remove(i)
+            for card in range(len(self.support)):
+                coalitions = combinations(index_set, card)
+                for coalition in coalitions:
+                    # calculate the risk averse expectation of the coalition
+                    risk_averse_pre_join_value = coalition_cvar_values[coalition]
+                    risk_averse_post_join_value = coalition_cvar_values[tuple(sorted(coalition + (i,)))]
+                    marginal_contribution = risk_averse_post_join_value - risk_averse_pre_join_value
+                    scores[i] += marginal_contribution * \
+                                             get_weight(len(self.support),
+                                                        len(coalition),
+                                                        data_valuation_function=prior_data_valuation_function,
+                                                        **kwargs) / \
+                                             comb(len(self.support) - 1, card)
+
+        return scores
