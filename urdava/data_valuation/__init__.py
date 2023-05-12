@@ -26,6 +26,13 @@ class ValuableModel:
         elif data_valuation_function == "beta":
             return self.naive_prior(data_valuation_function="beta",
                                     alpha=kwargs["alpha"], beta=kwargs["beta"])
+        # monte-carlo shapley
+        elif data_valuation_function == "monte-carlo shapley":
+            return self.monte_carlo_prior(data_valuation_function="shapley", **kwargs)
+        elif data_valuation_function == "monte-carlo banzhaf":
+            return self.monte_carlo_prior(data_valuation_function="banzhaf", **kwargs)
+        elif data_valuation_function == "monte-carlo beta":
+            return self.monte_carlo_prior(data_valuation_function="beta", **kwargs)
         # naïve URDaVa
         elif data_valuation_function == "robust loo":
             return self.naive_urdava(kwargs["coalition_probability"], prior_data_valuation_function="loo")
@@ -119,6 +126,48 @@ class ValuableModel:
 
         return scores
     
+    def monte_carlo_prior(self, data_valuation_function="shapley", **kwargs):
+        t = 0  # iterations
+        statistics = {i: 0 for i in self.support}  # gelman-rubin statistic
+        tol = kwargs['tolerance']
+        max_iter = 1000000
+        m_chains = 10
+        block_size = 50
+        scores = {}
+        samples = {}
+        for i in self.support:
+            scores[i] = 0
+            samples[i] = []
+
+        while (not check_gelman_rubin(statistics, tol)[0]) and t <= max_iter:
+            if t % 500 == 0 and not kwargs.get('suppress_progress', False):
+                print(f"====> Monte-Carlo Round {t} - Average convergence rate = "
+                      f"{np.mean(np.array(list(statistics.values())))}")
+                num_of_not_converged_data_sources = check_gelman_rubin(statistics, tol)[1]
+                print(f"---------> Number of values that have not converged: "
+                      f"{num_of_not_converged_data_sources}")
+
+            for n_iter in range(block_size):  # number of new samples before checking convergence
+                t += 1
+                perm = np.random.permutation(np.array(list(self.support)))
+                coalition = []
+                for i in range(len(self.support)):
+                    pre_utility = self.get_utility(tuple(coalition))
+                    coalition.append(perm[i])
+                    post_utility = self.get_utility(tuple(coalition))
+                    marginal_contribution = post_utility - pre_utility
+                    scaled_marginal_contribution = marginal_contribution * \
+                                                       get_weight(len(self.support),
+                                                                  i,
+                                                                  data_valuation_function=data_valuation_function,
+                                                                  **kwargs) / (1 / len(self.support))
+                    samples[perm[i]].append(scaled_marginal_contribution)
+                    scores[perm[i]] = (scores[perm[i]] * (t - 1) + scaled_marginal_contribution) / t
+
+            statistics = gelman_rubin(samples, m_chains)
+
+        return scores
+    
     def partial_prior(self, data_valuation_function="shapley", **kwargs):
         scores = {}
         support = kwargs['partial_support']
@@ -203,7 +252,7 @@ class ValuableModel:
             samples[i] = []
 
         while (not check_gelman_rubin(statistics, tol)[0]) and t <= max_iter:
-            if t % 50 == 0 and not kwargs.get('suppress_progress', False):
+            if t % 500 == 0 and not kwargs.get('suppress_progress', False):
                 print(f"====> Monte-Carlo Round {t} - Average convergence rate = "
                       f"{np.mean(np.array(list(statistics.values())))}")
                 num_of_not_converged_data_sources = check_gelman_rubin(statistics, tol)[1]

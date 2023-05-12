@@ -1,5 +1,6 @@
 import numpy as np
 from abc import ABC, abstractmethod
+from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression, RidgeClassifier
 from sklearn.metrics import f1_score
 from sklearn.naive_bayes import GaussianNB
@@ -116,31 +117,11 @@ class IClassificationModel(ModelUtilityFunction):
 
         X_train = np.concatenate([self.data_sources.get(i)[0] for i in coalition])
         y_train = np.concatenate([self.data_sources.get(i)[1] for i in coalition])
-        return model.fit(X_train, y_train).score(self.X_test, self.y_test)
-    
-
-class IClassificationF1Model(ModelUtilityFunction):
-    def __init__(self, model, data_sources: dict, X_test: np.ndarray, y_test: np.ndarray):
-        self.model = model
-        self.data_sources = data_sources
-        self.X_test = X_test
-        self.y_test = y_test
-
-    def get_utility(self, coalition: tuple):
-        coalition = tuple(sorted(coalition))
-        if len(coalition) == 0:
-            return 0
         
-        model = self.model()
-
-        for i in coalition:
-            if i not in self.data_sources:
-                raise KeyError(f"Data source {i} does not exist in support set.")
-
-        X_train = np.concatenate([self.data_sources.get(i)[0] for i in coalition])
-        y_train = np.concatenate([self.data_sources.get(i)[1] for i in coalition])
-        y_pred = model.fit(X_train, y_train).predict(self.X_test)
-        return f1_score(self.y_test, y_pred)
+        if np.all(y_train == y_train[0]):
+            return DummyClassifier(strategy='constant', constant=y_train[0]).fit(X_train, y_train).score(self.X_test, self.y_test)
+        
+        return model.fit(X_train, y_train).score(self.X_test, self.y_test)
 
 
 model_knn = lambda: KNeighborsClassifier()
