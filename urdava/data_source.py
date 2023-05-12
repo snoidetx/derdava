@@ -2,6 +2,8 @@ import numpy as np
 
 
 def generate_random_data_sources(X: np.ndarray, y: np.ndarray, num_of_data_sources: int=10):
+    """Splits a given dataset to a specified number of data sources."""
+
     data_sources = {}
     n = len(X) // num_of_data_sources
     for i in range(num_of_data_sources):

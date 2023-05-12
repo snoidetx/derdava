@@ -18,9 +18,7 @@ def load_dataset(name: str):
     """Load a default dataset.
 
     :param name: One of ``'cpu'``, ``'credit card'``, ``'diabetes'``, ``'flower'``, ``'mnist'``, ``'phoneme'``, ``'pol'``, ``'wind'``
-
-    :return: A tuple ``(X, y)`` containing the features and labels of the loaded dataset.
-
+    :return: A tuple ``(X, y)`` containing the features and labels of the loaded dataset
     :raise ValueError: If ``name`` is not one of the above names
     """
     if name == "cpu":

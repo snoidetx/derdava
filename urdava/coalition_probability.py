@@ -6,11 +6,23 @@ from itertools import combinations
 class CoalitionProbability(ABC):
     @abstractmethod
     def get_probability(self, coalition: tuple):
+        """Returns the staying probability of the given coalition.
+
+        :param coalition: A tuple of integers representing the coalition to be queried.
+        :return: Staying probability of the given coalition.
+        """
+
         pass
 
 
 class IndependentCoalitionProbability(CoalitionProbability):
     def __init__(self, staying_probabilities):
+        """Creates an ``IndependentCoalitionProbability``.
+
+        :param staying_probabilities: A dictionary ``{ int: float }`` representing the independent
+        staying probability of each data source.
+        """
+
         self.staying_probabilities = staying_probabilities
 
     def get_probability(self, coalition: tuple):
@@ -50,3 +62,20 @@ class RandomCoalitionProbability(CoalitionProbability):
                 raise KeyError(f"Data source {i} does not have a staying probability specified.")
 
         return self.prob_distribution[coalition]
+
+
+class UniformCoalitionProbability(CoalitionProbability):
+    """Each coalition has a uniform staying probability equal to 1/2^n."""
+
+    def __init__(self, support: tuple):
+        self.support = tuple(sorted(tuple))
+        n_data_sources = len(self.support)
+        self.uniform_probability = 1 / (2 ** n_data_sources)
+
+    def get_probability(self, coalition: tuple):
+        coalition = tuple(sorted(coalition))
+        for i in coalition:
+            if i not in self.support:
+                raise KeyError(f"Data source {i} does not have a staying probability specified.")
+
+        return self.uniform_probability
