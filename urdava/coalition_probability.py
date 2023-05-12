@@ -14,6 +14,11 @@ class CoalitionProbability(ABC):
 
         pass
 
+    @abstractmethod
+    def simulate(self):
+        """Returns a coalition according to the joint probability."""
+        pass
+
 
 class IndependentCoalitionProbability(CoalitionProbability):
     def __init__(self, staying_probabilities):
@@ -38,11 +43,20 @@ class IndependentCoalitionProbability(CoalitionProbability):
                 prob *= 1 - self.staying_probabilities[i]
 
         return prob
+    
+    def simulate(self):
+        remaining_set = []
+        for i in self.staying_probabilities:
+            is_staying = np.random.random() < self.staying_probabilities[i]
+            if is_staying:
+                remaining_set.append(i)
+        
+        return tuple(remaining_set)
 
 
 class RandomCoalitionProbability(CoalitionProbability):
     def __init__(self, support: tuple):
-        support = tuple(sorted(tuple))
+        support = tuple(sorted(support))
         n_data_sources = len(support)
         p = np.random.random(2 ** n_data_sources)
         p /= p.sum()
@@ -63,19 +77,7 @@ class RandomCoalitionProbability(CoalitionProbability):
 
         return self.prob_distribution[coalition]
 
+    def simulate(self):
+        choice = np.random.choice(np.arange(len(self.prob_distribution)), p=list(self.prob_distribution.values()))
+        return list(self.prob_distribution.keys())[choice]
 
-class UniformCoalitionProbability(CoalitionProbability):
-    """Each coalition has a uniform staying probability equal to 1/2^n."""
-
-    def __init__(self, support: tuple):
-        self.support = tuple(sorted(tuple))
-        n_data_sources = len(self.support)
-        self.uniform_probability = 1 / (2 ** n_data_sources)
-
-    def get_probability(self, coalition: tuple):
-        coalition = tuple(sorted(coalition))
-        for i in coalition:
-            if i not in self.support:
-                raise KeyError(f"Data source {i} does not have a staying probability specified.")
-
-        return self.uniform_probability

@@ -58,8 +58,8 @@ def load_creditcard():
         feature_name = "x" + str(i)
         FEATURE_NAMES.append(feature_name)
     LABEL_NAME = "y"
-    X = df[FEATURE_NAMES][:2000].to_numpy()
-    y = df[LABEL_NAME][:2000].to_numpy()
+    X = df[FEATURE_NAMES][:1000].to_numpy()
+    y = df[LABEL_NAME][:1000].to_numpy()
     return X, y
 
 
