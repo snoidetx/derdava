@@ -10,4 +10,4 @@ As different data make different levels of contribution to the model, model owne
 
 ## User Guide
 
-Check out DeRDaVa's [user guide](https://snoidetx.github.io/derdava/).
+Check out DeRDaVa's [user guide](https://snoidetx.github.io/derdava/user_guide.html).
