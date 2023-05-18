@@ -1,0 +1,682 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
+        <title>derdava.data_valuation - DeRDaVa 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">DeRDaVa 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">DeRDaVa 0.0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">DeRDaVa’s User Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">derdava</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../derdava.html">derdava package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../derdava.data_valuation.html">derdava.data_valuation package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for derdava.data_valuation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">comb</span>
+<span class="kn">from</span> <span class="nn">derdava.coalition_probability</span> <span class="kn">import</span> <span class="n">CoalitionProbability</span>
+<span class="kn">from</span> <span class="nn">derdava.data_valuation.semivalue_weight</span> <span class="kn">import</span> <span class="n">get_weight</span>
+<span class="kn">from</span> <span class="nn">derdava.model_utility</span> <span class="kn">import</span> <span class="n">ModelUtilityFunction</span>
+<span class="kn">from</span> <span class="nn">derdava.sampling</span> <span class="kn">import</span> <span class="n">check_gelman_rubin</span><span class="p">,</span> <span class="n">gelman_rubin</span><span class="p">,</span> <span class="n">zot_sampling</span><span class="p">,</span> <span class="n">cvar</span>
+
+
+<div class="viewcode-block" id="ValuableModel"><a class="viewcode-back" href="../../derdava.data_valuation.html#derdava.data_valuation.ValuableModel">[docs]</a><span class="k">class</span> <span class="nc">ValuableModel</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main class used for data valuation.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ValuableModel.__init__"><a class="viewcode-back" href="../../derdava.data_valuation.html#derdava.data_valuation.ValuableModel.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">support</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">model_utility_function</span><span class="p">:</span> <span class="n">ModelUtilityFunction</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a ``ValuableModel``.</span>
+
+<span class="sd">        :param support: A tuple containing the indices of data sources in the support set.</span>
+<span class="sd">        :param model_utility_function: A ``ModelUtilityFunction`` object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">support</span> <span class="o">=</span> <span class="n">support</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_utility_function</span> <span class="o">=</span> <span class="n">model_utility_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stored_utilities</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="ValuableModel.valuate"><a class="viewcode-back" href="../../derdava.data_valuation.html#derdava.data_valuation.ValuableModel.valuate">[docs]</a>    <span class="k">def</span> <span class="nf">valuate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs data valuation.</span>
+
+<span class="sd">        :param data_valuation_function: The data valuation function to be used. It supports the following options:</span>
+
+<span class="sd">                                        * Dummy: ``&#39;dummy&#39;`` (always assigns :math:`0` to all data sources);</span>
+<span class="sd">                                        * Semivalues: ``&#39;loo&#39;``, ``&#39;shapley&#39;``, ``&#39;banzhaf&#39;``, ``&#39;beta&#39;``;</span>
+<span class="sd">                                        * Monte-Carlo approximation of semivalues: ``&#39;monte-carlo shapley&#39;``, ``&#39;monte-carlo banzhaf&#39;``, ``&#39;monte-carlo beta&#39;``;</span>
+<span class="sd">                                        * DeRDaVas: ``&#39;robust loo&#39;``, ``&#39;robust shapley&#39;``, ``&#39;robust banzhaf&#39;``, ``&#39;robust beta&#39;``;</span>
+<span class="sd">                                        * 012-MCMC approximation of DeRDaVas: ``&#39;012-mcmc robust loo&#39;``, ``&#39;012-mcmc robust shapley&#39;``, ``&#39;012-mcmc robust banzhaf&#39;``, ``&#39;012-mcmc robust beta&#39;``;</span>
+<span class="sd">                                        * Risk-DeRDaVas: ``&#39;risk averse robust shapley&#39;``, ``&#39;risk averse robust banzhaf&#39;``, ``&#39;risk averse robust beta&#39;``,  ``&#39;risk seeking robust shapley&#39;``, ``&#39;risk seeking robust banzhaf&#39;``, ``&#39;risk seeking robust beta&#39;``.</span>
+
+<span class="sd">                                        .. Note::</span>
+<span class="sd">                                           When any ``&#39;beta&#39;`` or its variants is selected as ``data_valuation_function``, you need to pass in two additional keyword arguments ``alpha`` and ``beta`` (both are positive numbers).</span>
+
+<span class="sd">                                           When any DeRDaVa is used, you need to specify one keyword argument ``coalition_probability`` of class ``CoalitionProbability``.</span>
+
+<span class="sd">                                           When any Monte-Carlo or 012-MCMC approximation is used, you need to specify one keyword argument ``tolerance`` (default ``1.005``).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;tolerance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tolerance&quot;</span><span class="p">,</span> <span class="mf">1.005</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;dummy&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">}</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;loo&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loo</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;shapley&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;banzhaf&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;banzhaf&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;beta&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span>
+                                    <span class="n">alpha</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">],</span> <span class="n">beta</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;beta&quot;</span><span class="p">])</span>
+        <span class="c1"># monte-carlo shapley</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;monte-carlo shapley&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">monte_carlo_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;monte-carlo banzhaf&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">monte_carlo_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;banzhaf&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;monte-carlo beta&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">monte_carlo_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># naïve derdava</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;robust loo&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_derdava</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;coalition_probability&quot;</span><span class="p">],</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;loo&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;robust shapley&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_derdava</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;coalition_probability&quot;</span><span class="p">],</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;robust banzhaf&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_derdava</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;coalition_probability&quot;</span><span class="p">],</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;banzhaf&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;robust beta&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_derdava</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;coalition_probability&quot;</span><span class="p">],</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span>
+                                     <span class="n">alpha</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">],</span> <span class="n">beta</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;beta&quot;</span><span class="p">])</span>
+        <span class="c1"># 012-MCMC derdava</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;012-mcmc robust loo&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zot_mcmc_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;loo&quot;</span><span class="p">,</span>
+                                      <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;012-mcmc robust shapley&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zot_mcmc_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span>
+                                      <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;012-mcmc robust banzhaf&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zot_mcmc_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;banzhaf&quot;</span><span class="p">,</span>
+                                      <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;012-mcmc robust beta&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zot_mcmc_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span>
+                                      <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Risk-derdava</span>
+        <span class="c1"># risk averse derdava</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;risk averse robust shapley&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_risk_averse_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;risk averse robust banzhaf&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_risk_averse_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;banzhaf&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;risk averse robust beta&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_risk_averse_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># risk seeking derdava</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;risk seeking robust shapley&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_risk_seeking_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;risk seeking robust banzhaf&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_risk_seeking_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;banzhaf&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;risk seeking robust beta&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">naive_risk_seeking_urdv</span><span class="p">(</span><span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="c1"># partial prior</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;partial shapley&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">partial_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;partial banzhaf&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">partial_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;banzhaf&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_valuation_function</span> <span class="o">==</span> <span class="s2">&quot;partial beta&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">partial_prior</span><span class="p">(</span><span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Data valuation function does not exist or arguments are invalid.&quot;</span><span class="p">)</span></div>
+            
+    <span class="k">def</span> <span class="nf">get_utility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coalition</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">coalition</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stored_utilities</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stored_utilities</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_utility_function</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="n">coalition</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stored_utilities</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span> <span class="o">=</span> <span class="n">utility</span>
+            <span class="k">return</span> <span class="n">utility</span>
+
+    <span class="k">def</span> <span class="nf">loo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">coalition</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span>
+        <span class="n">post_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+            <span class="n">coalition</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">pre_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_utility</span> <span class="o">-</span> <span class="n">pre_utility</span>
+            <span class="n">coalition</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
+
+    <span class="k">def</span> <span class="nf">naive_prior</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span>
+            <span class="n">indices</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)):</span>
+                <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                    <span class="n">pre_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+                    <span class="n">coalition</span> <span class="o">=</span> <span class="n">coalition</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,)</span>
+                    <span class="n">post_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+                    <span class="n">marginal_contribution</span> <span class="o">=</span> <span class="n">post_utility</span> <span class="o">-</span> <span class="n">pre_utility</span>
+                    <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">marginal_contribution</span> <span class="o">*</span> \
+                                 <span class="n">get_weight</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">),</span>
+                                            <span class="n">card</span><span class="p">,</span>
+                                            <span class="n">data_valuation_function</span><span class="o">=</span><span class="n">data_valuation_function</span><span class="p">,</span>
+                                            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> \
+                                 <span class="n">comb</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
+    
+    <span class="k">def</span> <span class="nf">monte_carlo_prior</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># iterations</span>
+        <span class="n">statistics</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">}</span>  <span class="c1"># gelman-rubin statistic</span>
+        <span class="n">tol</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;tolerance&#39;</span><span class="p">]</span>
+        <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">1000000</span>
+        <span class="n">m_chains</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">block_size</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">check_gelman_rubin</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span> <span class="n">tol</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">max_iter</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;suppress_progress&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;====&gt; Monte-Carlo Round </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2"> - Average convergence rate = &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">values</span><span class="p">())))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">num_of_not_converged_data_sources</span> <span class="o">=</span> <span class="n">check_gelman_rubin</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span> <span class="n">tol</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;---------&gt; Number of values that have not converged: &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_of_not_converged_data_sources</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">n_iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">block_size</span><span class="p">):</span>  <span class="c1"># number of new samples before checking convergence</span>
+                <span class="n">t</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">perm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)))</span>
+                <span class="n">coalition</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)):</span>
+                    <span class="n">pre_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+                    <span class="n">coalition</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <span class="n">post_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+                    <span class="n">marginal_contribution</span> <span class="o">=</span> <span class="n">post_utility</span> <span class="o">-</span> <span class="n">pre_utility</span>
+                    <span class="n">scaled_marginal_contribution</span> <span class="o">=</span> <span class="n">marginal_contribution</span> <span class="o">*</span> \
+                                                       <span class="n">get_weight</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">),</span>
+                                                                  <span class="n">i</span><span class="p">,</span>
+                                                                  <span class="n">data_valuation_function</span><span class="o">=</span><span class="n">data_valuation_function</span><span class="p">,</span>
+                                                                  <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">))</span>
+                    <span class="n">samples</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_marginal_contribution</span><span class="p">)</span>
+                    <span class="n">scores</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">perm</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">scaled_marginal_contribution</span><span class="p">)</span> <span class="o">/</span> <span class="n">t</span>
+
+            <span class="n">statistics</span> <span class="o">=</span> <span class="n">gelman_rubin</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">m_chains</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
+    
+    <span class="k">def</span> <span class="nf">partial_prior</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">support</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;partial_support&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>          
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">support</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">support</span><span class="p">)</span>
+            <span class="n">indices</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">support</span><span class="p">)):</span>
+                <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                    <span class="n">pre_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+                    <span class="n">coalition</span> <span class="o">=</span> <span class="n">coalition</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,)</span>
+                    <span class="n">post_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">coalition</span><span class="p">))</span>
+                    <span class="n">marginal_contribution</span> <span class="o">=</span> <span class="n">post_utility</span> <span class="o">-</span> <span class="n">pre_utility</span>
+                    <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">marginal_contribution</span> <span class="o">*</span> \
+                                 <span class="n">get_weight</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">support</span><span class="p">),</span>
+                                            <span class="n">card</span><span class="p">,</span>
+                                            <span class="n">data_valuation_function</span><span class="o">=</span><span class="n">data_valuation_function</span><span class="p">,</span>
+                                            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> \
+                                 <span class="n">comb</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">support</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
+
+    <span class="k">def</span> <span class="nf">naive_derdava</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coalition_probability</span><span class="p">:</span> <span class="n">CoalitionProbability</span><span class="p">,</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+            <span class="n">all_coalitions</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span>
+            <span class="n">indices</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)):</span>
+                <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                    <span class="n">all_coalitions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coalition</span><span class="p">)</span>
+            
+            <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">S</span> <span class="ow">in</span> <span class="n">all_coalitions</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span>
+                <span class="n">indices</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
+                    <span class="n">indices</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+                <span class="c1"># marginal contribution</span>
+                <span class="n">pre_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+                <span class="n">post_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,))</span>
+                <span class="n">marginal_contribution</span> <span class="o">=</span> <span class="n">post_utility</span> <span class="o">-</span> <span class="n">pre_utility</span>
+
+                <span class="c1"># weight</span>
+                <span class="n">weight</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="n">unincluded_coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">unincluded_coalition</span> <span class="ow">in</span> <span class="n">unincluded_coalitions</span><span class="p">:</span>
+                        <span class="n">D_prime</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">S</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,)</span> <span class="o">+</span> <span class="n">unincluded_coalition</span><span class="p">))</span>
+                        <span class="n">prob</span> <span class="o">=</span> <span class="n">coalition_probability</span><span class="o">.</span><span class="n">get_probability</span><span class="p">(</span><span class="n">D_prime</span><span class="p">)</span>
+                        <span class="n">coeff</span> <span class="o">=</span> <span class="n">prob</span> <span class="o">*</span> \
+                                <span class="n">get_weight</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">D_prime</span><span class="p">),</span>
+                                           <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">),</span>
+                                           <span class="n">data_valuation_function</span><span class="o">=</span><span class="n">prior_data_valuation_function</span><span class="p">,</span>
+                                           <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> \
+                                <span class="n">comb</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">D_prime</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+                        <span class="n">weight</span> <span class="o">+=</span> <span class="n">coeff</span>
+
+                <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">weight</span> <span class="o">*</span> <span class="n">marginal_contribution</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
+
+    <span class="k">def</span> <span class="nf">zot_mcmc_urdv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># iterations</span>
+        <span class="n">statistics</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">}</span>  <span class="c1"># gelman-rubin statistic</span>
+        <span class="n">coalition_probability</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;coalition_probability&#39;</span><span class="p">]</span>
+        <span class="n">tol</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;tolerance&#39;</span><span class="p">]</span>
+        <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">1000000</span>
+        <span class="n">m_chains</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">block_size</span> <span class="o">=</span> <span class="mi">250</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">check_gelman_rubin</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span> <span class="n">tol</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">max_iter</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;suppress_progress&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;====&gt; Monte-Carlo Round </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2"> - Average convergence rate = &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">values</span><span class="p">())))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">num_of_not_converged_data_sources</span> <span class="o">=</span> <span class="n">check_gelman_rubin</span><span class="p">(</span><span class="n">statistics</span><span class="p">,</span> <span class="n">tol</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;---------&gt; Number of values that have not converged: &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_of_not_converged_data_sources</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">n_iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">block_size</span><span class="p">):</span>  <span class="c1"># number of new samples before checking convergence</span>
+                <span class="n">t</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="c1"># do 012-sampling for each data source</span>
+                <span class="c1"># remove d_i</span>
+                <span class="n">S</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">}</span>
+                <span class="n">D_prime</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">}</span>
+                <span class="k">for</span> <span class="n">data_source</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span> 
+                    <span class="n">outcome</span> <span class="o">=</span> <span class="n">zot_sampling</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">outcome</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                        <span class="k">elif</span> <span class="n">outcome</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">data_source</span><span class="p">:</span>
+                                <span class="k">continue</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">D_prime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_source</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">data_source</span><span class="p">:</span>
+                                <span class="k">continue</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_source</span><span class="p">)</span>
+                                <span class="n">D_prime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_source</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+                    <span class="n">pre_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                    <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                    <span class="n">post_utility</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                    <span class="n">marginal_contribution</span> <span class="o">=</span> <span class="n">post_utility</span> <span class="o">-</span> <span class="n">pre_utility</span>
+                    <span class="n">D_prime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                    <span class="n">term_prob</span> <span class="o">=</span> <span class="n">coalition_probability</span><span class="o">.</span><span class="n">get_probability</span><span class="p">(</span><span class="n">D_prime</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <span class="n">term_weight</span> <span class="o">=</span> <span class="n">get_weight</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">D_prime</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span>
+                                             <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                                             <span class="n">data_valuation_function</span><span class="o">=</span><span class="n">prior_data_valuation_function</span><span class="p">,</span>
+                                             <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                    <span class="n">term_comb</span> <span class="o">=</span> <span class="n">comb</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">D_prime</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="n">scaled_marginal_contribution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> \
+                                                   <span class="n">term_prob</span> <span class="o">*</span> <span class="n">term_weight</span> <span class="o">*</span> <span class="n">marginal_contribution</span> <span class="o">/</span> <span class="n">term_comb</span>
+                    <span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scaled_marginal_contribution</span><span class="p">)</span>
+                    <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">scaled_marginal_contribution</span><span class="p">)</span> <span class="o">/</span> <span class="n">t</span>
+
+            <span class="n">statistics</span> <span class="o">=</span> <span class="n">gelman_rubin</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">m_chains</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
+
+    <span class="k">def</span> <span class="nf">naive_risk_averse_urdv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">lower_tail</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lower_tail&#39;</span><span class="p">]</span>
+        <span class="n">coalition_probability</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;coalition_probability&#39;</span><span class="p">]</span>
+        
+        <span class="c1"># generate the value and probability of each coalition</span>
+        <span class="n">coalition_probabilities</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="n">coalition</span><span class="p">)</span>
+                <span class="n">coalition_probabilities</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span> <span class="o">=</span> <span class="n">coalition_probability</span><span class="o">.</span><span class="n">get_probability</span><span class="p">(</span><span class="n">coalition</span><span class="p">)</span>
+
+        <span class="c1"># generate the CVaR value of each coalition</span>
+        <span class="n">coalition_cvar_values</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stored_utilities</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">actual_coalition</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">coalition</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">case</span><span class="p">:</span>
+                            <span class="n">actual_coalition</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+                    <span class="n">actual_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="n">actual_coalition</span><span class="p">)</span>
+                    <span class="n">actual_prob</span> <span class="o">=</span> <span class="n">coalition_probabilities</span><span class="p">[</span><span class="n">case</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">actual_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                        <span class="n">values</span><span class="p">[</span><span class="n">actual_value</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">values</span><span class="p">[</span><span class="n">actual_value</span><span class="p">]</span> <span class="o">+=</span> <span class="n">actual_prob</span>
+
+                <span class="n">coalition_cvar_values</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span> <span class="o">=</span> <span class="n">cvar</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">lower_tail</span><span class="o">=</span><span class="n">lower_tail</span><span class="p">)</span>
+
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">index_set</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span>
+            <span class="n">index_set</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)):</span>
+                <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="n">index_set</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                    <span class="c1"># calculate the risk averse expectation of the coalition</span>
+                    <span class="n">risk_averse_pre_join_value</span> <span class="o">=</span> <span class="n">coalition_cvar_values</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span>
+                    <span class="n">risk_averse_post_join_value</span> <span class="o">=</span> <span class="n">coalition_cvar_values</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">coalition</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,)))]</span>
+                    <span class="n">marginal_contribution</span> <span class="o">=</span> <span class="n">risk_averse_post_join_value</span> <span class="o">-</span> <span class="n">risk_averse_pre_join_value</span>
+                    <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">marginal_contribution</span> <span class="o">*</span> \
+                                             <span class="n">get_weight</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">),</span>
+                                                        <span class="nb">len</span><span class="p">(</span><span class="n">coalition</span><span class="p">),</span>
+                                                        <span class="n">data_valuation_function</span><span class="o">=</span><span class="n">prior_data_valuation_function</span><span class="p">,</span>
+                                                        <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> \
+                                             <span class="n">comb</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scores</span>
+    
+    <span class="k">def</span> <span class="nf">naive_risk_seeking_urdv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prior_data_valuation_function</span><span class="o">=</span><span class="s2">&quot;shapley&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;:meta private:&quot;&quot;&quot;</span>
+        <span class="n">upper_tail</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;upper_tail&#39;</span><span class="p">]</span>
+        <span class="n">coalition_probability</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;coalition_probability&#39;</span><span class="p">]</span>
+        
+        <span class="c1"># generate the value and probability of each coalition</span>
+        <span class="n">coalition_probabilities</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="n">coalition</span><span class="p">)</span>
+                <span class="n">coalition_probabilities</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span> <span class="o">=</span> <span class="n">coalition_probability</span><span class="o">.</span><span class="n">get_probability</span><span class="p">(</span><span class="n">coalition</span><span class="p">)</span>
+
+        <span class="c1"># generate the CVaR value of each coalition</span>
+        <span class="n">coalition_cvar_values</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stored_utilities</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">actual_coalition</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">coalition</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">case</span><span class="p">:</span>
+                            <span class="n">actual_coalition</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+                    <span class="n">actual_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_utility</span><span class="p">(</span><span class="n">actual_coalition</span><span class="p">)</span>
+                    <span class="n">actual_prob</span> <span class="o">=</span> <span class="n">coalition_probabilities</span><span class="p">[</span><span class="n">case</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">actual_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                        <span class="n">values</span><span class="p">[</span><span class="n">actual_value</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">values</span><span class="p">[</span><span class="n">actual_value</span><span class="p">]</span> <span class="o">+=</span> <span class="n">actual_prob</span>
+
+                <span class="n">coalition_cvar_values</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span> <span class="o">=</span> <span class="n">cvar</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">lower_tail</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">upper_tail</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">:</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">index_set</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span>
+            <span class="n">index_set</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)):</span>
+                <span class="n">coalitions</span> <span class="o">=</span> <span class="n">combinations</span><span class="p">(</span><span class="n">index_set</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">coalition</span> <span class="ow">in</span> <span class="n">coalitions</span><span class="p">:</span>
+                    <span class="c1"># calculate the risk averse expectation of the coalition</span>
+                    <span class="n">risk_averse_pre_join_value</span> <span class="o">=</span> <span class="n">coalition_cvar_values</span><span class="p">[</span><span class="n">coalition</span><span class="p">]</span>
+                    <span class="n">risk_averse_post_join_value</span> <span class="o">=</span> <span class="n">coalition_cvar_values</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">coalition</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,)))]</span>
+                    <span class="n">marginal_contribution</span> <span class="o">=</span> <span class="n">risk_averse_post_join_value</span> <span class="o">-</span> <span class="n">risk_averse_pre_join_value</span>
+                    <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">marginal_contribution</span> <span class="o">*</span> \
+                                             <span class="n">get_weight</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">),</span>
+                                                        <span class="nb">len</span><span class="p">(</span><span class="n">coalition</span><span class="p">),</span>
+                                                        <span class="n">data_valuation_function</span><span class="o">=</span><span class="n">prior_data_valuation_function</span><span class="p">,</span>
+                                                        <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> \
+                                             <span class="n">comb</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">support</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scores</span></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Tian Xiao
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    </body>
+</html>
