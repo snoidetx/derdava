@@ -1,4 +1,4 @@
-# URDaVa: Unlearning-Robust Data Valuation
+# DeRDaVa: Deletion-Robust Data Valuation
 
 Over the years, machine learning has been widely used in both industrial and scientific research. Since machine learning heavily relies on data, model owners often need to collaborate with various data owners to obtain sufficiently many data. 
 
