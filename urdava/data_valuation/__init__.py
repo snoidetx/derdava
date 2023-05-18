@@ -244,7 +244,7 @@ class ValuableModel:
         tol = kwargs['tolerance']
         max_iter = 1000000
         m_chains = 10
-        block_size = 50
+        block_size = 250
         scores = {}
         samples = {}
         for i in self.support:
@@ -297,6 +297,7 @@ class ValuableModel:
                     term_comb = comb(len(D_prime[i]) - 1, len(S[i]) - 1)
                     scaled_marginal_contribution = (3 ** (len(self.support) - 1)) * \
                                                    term_prob * term_weight * marginal_contribution / term_comb
+                    #print(scaled_marginal_contribution)
                     samples[i].append(scaled_marginal_contribution)
                     scores[i] = (scores[i] * (t - 1) + scaled_marginal_contribution) / t
 
