@@ -1,0 +1,763 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="derdava.data_valuation package" href="derdava.data_valuation.html" /><link rel="prev" title="derdava" href="modules.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
+        <title>derdava package - DeRDaVa 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">DeRDaVa 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">DeRDaVa 0.0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">DeRDaVa’s User Guide</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">derdava</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">derdava package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="derdava.data_valuation.html">derdava.data_valuation package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="module-derdava">
+<span id="derdava-package"></span><h1>derdava package<a class="headerlink" href="#module-derdava" title="Permalink to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="derdava.data_valuation.html">derdava.data_valuation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="derdava.data_valuation.html#derdava.data_valuation.ValuableModel"><code class="docutils literal notranslate"><span class="pre">ValuableModel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="derdava.data_valuation.html#derdava.data_valuation.ValuableModel.__init__"><code class="docutils literal notranslate"><span class="pre">ValuableModel.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="derdava.data_valuation.html#derdava.data_valuation.ValuableModel.valuate"><code class="docutils literal notranslate"><span class="pre">ValuableModel.valuate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-derdava.coalition_probability">
+<span id="derdava-coalition-probability-module"></span><h2>derdava.coalition_probability module<a class="headerlink" href="#module-derdava.coalition_probability" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="derdava.coalition_probability.CoalitionProbability">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">derdava.coalition_probability.</span></span><span class="sig-name descname"><span class="pre">CoalitionProbability</span></span><a class="reference internal" href="_modules/derdava/coalition_probability.html#CoalitionProbability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.CoalitionProbability" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Represents the probability distribution that each coalition remains as the support set after data deletion.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.CoalitionProbability.get_probability">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coalition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#CoalitionProbability.get_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.CoalitionProbability.get_probability" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the staying probability of the given coalition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coalition</strong> – A tuple of integers representing the coalition to be queried.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.CoalitionProbability.simulate">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#CoalitionProbability.simulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.CoalitionProbability.simulate" title="Permalink to this definition">#</a></dt>
+<dd><p>Randomly generates a coalition according to the joint probability.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derdava.coalition_probability.IndependentCoalitionProbability">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">derdava.coalition_probability.</span></span><span class="sig-name descname"><span class="pre">IndependentCoalitionProbability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">staying_probabilities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#IndependentCoalitionProbability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.IndependentCoalitionProbability" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#derdava.coalition_probability.CoalitionProbability" title="derdava.coalition_probability.CoalitionProbability"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoalitionProbability</span></code></a></p>
+<p>Each data source has independent staying probability.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.IndependentCoalitionProbability.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">staying_probabilities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#IndependentCoalitionProbability.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.IndependentCoalitionProbability.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates an <code class="docutils literal notranslate"><span class="pre">IndependentCoalitionProbability</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>staying_probabilities</strong> – A dictionary <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">int:</span> <span class="pre">float</span> <span class="pre">}</span></code> representing the independent</p>
+</dd>
+</dl>
+<p>staying probability of each data source.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.IndependentCoalitionProbability.get_probability">
+<span class="sig-name descname"><span class="pre">get_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coalition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#IndependentCoalitionProbability.get_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.IndependentCoalitionProbability.get_probability" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the staying probability of the given coalition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coalition</strong> – A tuple of integers representing the coalition to be queried.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Staying probability of the given coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.IndependentCoalitionProbability.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#IndependentCoalitionProbability.simulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.IndependentCoalitionProbability.simulate" title="Permalink to this definition">#</a></dt>
+<dd><p>Randomly generates a coalition according to the joint probability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The simulated coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derdava.coalition_probability.RandomCoalitionProbability">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">derdava.coalition_probability.</span></span><span class="sig-name descname"><span class="pre">RandomCoalitionProbability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">support</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#RandomCoalitionProbability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.RandomCoalitionProbability" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#derdava.coalition_probability.CoalitionProbability" title="derdava.coalition_probability.CoalitionProbability"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoalitionProbability</span></code></a></p>
+<p>Randomly creates the joint probability.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.RandomCoalitionProbability.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">support</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#RandomCoalitionProbability.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.RandomCoalitionProbability.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates an <code class="docutils literal notranslate"><span class="pre">RandomCoalitionProbability</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>support</strong> – A set containing the indices of data sources in the support set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.RandomCoalitionProbability.get_probability">
+<span class="sig-name descname"><span class="pre">get_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coalition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#RandomCoalitionProbability.get_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.RandomCoalitionProbability.get_probability" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the staying probability of the given coalition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coalition</strong> – A tuple of integers representing the coalition to be queried.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Staying probability of the given coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.coalition_probability.RandomCoalitionProbability.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/coalition_probability.html#RandomCoalitionProbability.simulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.coalition_probability.RandomCoalitionProbability.simulate" title="Permalink to this definition">#</a></dt>
+<dd><p>Randomly generates a coalition according to the joint probability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The simulated coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-derdava.data_source">
+<span id="derdava-data-source-module"></span><h2>derdava.data_source module<a class="headerlink" href="#module-derdava.data_source" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.data_source.add_classification_noise">
+<span class="sig-prename descclassname"><span class="pre">derdava.data_source.</span></span><span class="sig-name descname"><span class="pre">add_classification_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/data_source.html#add_classification_noise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.data_source.add_classification_noise" title="Permalink to this definition">#</a></dt>
+<dd><p>Adds noises to the classification labels by randomly choosing one from the remaining label set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> – Labels of target dataset.</p></li>
+<li><p><strong>noise_level</strong> – Amount of noise to be added (defaults <code class="docutils literal notranslate"><span class="pre">0.2</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">noise_level</span></code> is not in the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.data_source.generate_random_data_sources">
+<span class="sig-prename descclassname"><span class="pre">derdava.data_source.</span></span><span class="sig-name descname"><span class="pre">generate_random_data_sources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_data_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/data_source.html#generate_random_data_sources"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.data_source.generate_random_data_sources" title="Permalink to this definition">#</a></dt>
+<dd><p>Splits a given dataset to a specified number of data sources randomly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – Feature set of the given dataset.</p></li>
+<li><p><strong>y</strong> – Label set of the given dataset.</p></li>
+<li><p><strong>num_of_data_sources</strong> – Number of data sources to be generated (default: <code class="docutils literal notranslate"><span class="pre">10</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing mappings between data source indices and their data <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">y)</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-derdava.dataset">
+<span id="derdava-dataset-module"></span><h2>derdava.dataset module<a class="headerlink" href="#module-derdava.dataset" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.dataset.load_dataset">
+<span class="sig-prename descclassname"><span class="pre">derdava.dataset.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/dataset.html#load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.dataset.load_dataset" title="Permalink to this definition">#</a></dt>
+<dd><p>Loads a built-in dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> – One of <code class="docutils literal notranslate"><span class="pre">'cpu'</span></code>, <code class="docutils literal notranslate"><span class="pre">'credit</span> <span class="pre">card'</span></code>, <code class="docutils literal notranslate"><span class="pre">'diabetes'</span></code>, <code class="docutils literal notranslate"><span class="pre">'flower'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mnist'</span></code>, <code class="docutils literal notranslate"><span class="pre">'phoneme'</span></code>, <code class="docutils literal notranslate"><span class="pre">'pol'</span></code>, <code class="docutils literal notranslate"><span class="pre">'wind'</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">y)</span></code> containing the features and labels of the loaded dataset. <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are Numpy arrays.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">name</span></code> is not one of the above names.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-derdava.model_utility">
+<span id="derdava-model-utility-module"></span><h2>derdava.model_utility module<a class="headerlink" href="#module-derdava.model_utility" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="derdava.model_utility.IClassificationModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">IClassificationModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#IClassificationModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.IClassificationModel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#derdava.model_utility.ModelUtilityFunction" title="derdava.model_utility.ModelUtilityFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelUtilityFunction</span></code></a></p>
+<p>Represents a model utility function based on a classification model and accuracy scores.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.model_utility.IClassificationModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#IClassificationModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.IClassificationModel.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Constructs an <code class="docutils literal notranslate"><span class="pre">IClassificationModel</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – A machine learning model from this module used for training.</p></li>
+<li><p><strong>data_sources</strong> – A dictionary containing mappings between data source indices and their data <cite>(X, y)</cite>.</p></li>
+<li><p><strong>X_test</strong> – Features of the testing (or validating) set.</p></li>
+<li><p><strong>y_test</strong> – Labels of the testing (or validating) set.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.model_utility.IClassificationModel.get_utility">
+<span class="sig-name descname"><span class="pre">get_utility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coalition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#IClassificationModel.get_utility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.IClassificationModel.get_utility" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the utility of a given coalition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coalition</strong> – A tuple containing the indices of data sources in the coalition.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Utility of the coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derdava.model_utility.ICoalitionalValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">ICoalitionalValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#ICoalitionalValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ICoalitionalValue" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#derdava.model_utility.ModelUtilityFunction" title="derdava.model_utility.ModelUtilityFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelUtilityFunction</span></code></a></p>
+<p>Stores every coalition and its utility.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.model_utility.ICoalitionalValue.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#ICoalitionalValue.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ICoalitionalValue.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Constructs an <code class="docutils literal notranslate"><span class="pre">ICoalitionalValue</span></code> model utility function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dic</strong> – A dictionary containing mappings between coalitions and their utilities.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.model_utility.ICoalitionalValue.get_utility">
+<span class="sig-name descname"><span class="pre">get_utility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coalition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#ICoalitionalValue.get_utility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ICoalitionalValue.get_utility" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the utility of a given coalition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coalition</strong> – A tuple containing the indices of data sources in the coalition.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Utility of the coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derdava.model_utility.ISymmetricClassificationModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">ISymmetricClassificationModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#ISymmetricClassificationModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ISymmetricClassificationModel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#derdava.model_utility.ModelUtilityFunction" title="derdava.model_utility.ModelUtilityFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelUtilityFunction</span></code></a></p>
+<p>Assumes all data sources are identical.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.model_utility.ISymmetricClassificationModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#ISymmetricClassificationModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ISymmetricClassificationModel.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Constructs an <cite>ISymmetricClassificationModel</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – A machine learning model from this module used for training.</p></li>
+<li><p><strong>data_sources</strong> – A dictionary containing mappings between data source indices and their data <cite>(X, y)</cite>.</p></li>
+<li><p><strong>X_test</strong> – Features of the testing (or validating) set.</p></li>
+<li><p><strong>y_test</strong> – Labels of the testing (or validating) set.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.model_utility.ISymmetricClassificationModel.get_utility">
+<span class="sig-name descname"><span class="pre">get_utility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coalition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#ISymmetricClassificationModel.get_utility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ISymmetricClassificationModel.get_utility" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the utility of a given coalition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coalition</strong> – A tuple containing the indices of data sources in the coalition.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Utility of the coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="derdava.model_utility.ModelUtilityFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">ModelUtilityFunction</span></span><a class="reference internal" href="_modules/derdava/model_utility.html#ModelUtilityFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ModelUtilityFunction" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class used to represent model utility function <span class="math notranslate nohighlight">\(v: \mathcal{P}(D) \to \mathbb{R}\)</span>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="derdava.model_utility.ModelUtilityFunction.get_utility">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_utility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coalition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/model_utility.html#ModelUtilityFunction.get_utility"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.model_utility.ModelUtilityFunction.get_utility" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the utility of a given coalition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coalition</strong> – A tuple containing the indices of data sources in the coalition.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Utility of the coalition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.model_utility.model_gaussian_nb">
+<span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">model_gaussian_nb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derdava.model_utility.model_gaussian_nb" title="Permalink to this definition">#</a></dt>
+<dd><p>Represents a Gaussian Naïve Bayes classifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.model_utility.model_knn">
+<span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">model_knn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derdava.model_utility.model_knn" title="Permalink to this definition">#</a></dt>
+<dd><p>Represents a <span class="math notranslate nohighlight">\(k\)</span>-Nearest Neighbours classifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.model_utility.model_linear_svm">
+<span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">model_linear_svm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derdava.model_utility.model_linear_svm" title="Permalink to this definition">#</a></dt>
+<dd><p>Represents a linear Support Vector Machine classifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.model_utility.model_logistic_regression">
+<span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">model_logistic_regression</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derdava.model_utility.model_logistic_regression" title="Permalink to this definition">#</a></dt>
+<dd><p>Represents a Logistic Regression classifier.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.model_utility.model_ridge_classifier">
+<span class="sig-prename descclassname"><span class="pre">derdava.model_utility.</span></span><span class="sig-name descname"><span class="pre">model_ridge_classifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#derdava.model_utility.model_ridge_classifier" title="Permalink to this definition">#</a></dt>
+<dd><p>Represents a Ridge classifier.</p>
+</dd></dl>
+
+</section>
+<section id="module-derdava.sampling">
+<span id="derdava-sampling-module"></span><h2>derdava.sampling module<a class="headerlink" href="#module-derdava.sampling" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.sampling.check_gelman_rubin">
+<span class="sig-prename descclassname"><span class="pre">derdava.sampling.</span></span><span class="sig-name descname"><span class="pre">check_gelman_rubin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">statistics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/sampling.html#check_gelman_rubin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.sampling.check_gelman_rubin" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks whether all Gelman-Rubin statistics have converged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>statistics</strong> – A dictionary of Gelman-Rubin statistics for all data sources.</p></li>
+<li><p><strong>tolerance</strong> – If one Gelman-Rubin statistic is between <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">tolerance</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing two elements: (1) whether all Gelman-Rubin statistics have converged; (2) number of data sources that have not converged.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.sampling.cvar">
+<span class="sig-prename descclassname"><span class="pre">derdava.sampling.</span></span><span class="sig-name descname"><span class="pre">cvar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_tail</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/sampling.html#cvar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.sampling.cvar" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the C-CVaR (Coalitional Conditional Value-at-Risk) value of a given discrete random variable (default C-CVaR<span class="math notranslate nohighlight">\(^-\)</span>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> – A dictionary that contains mappings between values and probability of the random variable.</p></li>
+<li><p><strong>lower_tail</strong> – The percentage of lower tail (<span class="math notranslate nohighlight">\(\alpha\)</span>) (default <code class="docutils literal notranslate"><span class="pre">0.6</span></code>).</p></li>
+<li><p><strong>reverse</strong> – Whether to compute C-CVaR<span class="math notranslate nohighlight">\(^+\)</span> (upper tail) instead (default <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The computed C-CVaR value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.sampling.gelman_rubin">
+<span class="sig-prename descclassname"><span class="pre">derdava.sampling.</span></span><span class="sig-name descname"><span class="pre">gelman_rubin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/sampling.html#gelman_rubin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.sampling.gelman_rubin" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the Gelman-Rubin statistic using the given samples.
+Referenced from <a class="reference external" href="https://www.imperial.ac.uk/media/imperial-college/research-centres-and-groups/astrophysics/public/icic/data-analysis-workshop/2018/Convergence-Tests.pdf">https://www.imperial.ac.uk/media/imperial-college/research-centres-and-groups/astrophysics/public/icic/data-analysis-workshop/2018/Convergence-Tests.pdf</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>samples</strong> – A dictionary containing samples generated for each data source.</p></li>
+<li><p><strong>m_chains</strong> – Number of Markov chains to be run in parallel.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing Gelman-Rubin statistics of each data source.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="derdava.sampling.zot_sampling">
+<span class="sig-prename descclassname"><span class="pre">derdava.sampling.</span></span><span class="sig-name descname"><span class="pre">zot_sampling</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/derdava/sampling.html#zot_sampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#derdava.sampling.zot_sampling" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the sampled state (one of <span class="math notranslate nohighlight">\(\{0, 1, 2\}\)</span>) for each data source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>One of <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="derdava.data_valuation.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">derdava.data_valuation package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="modules.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">derdava</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Tian Xiao
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">derdava package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-derdava.coalition_probability">derdava.coalition_probability module</a><ul>
+<li><a class="reference internal" href="#derdava.coalition_probability.CoalitionProbability"><code class="docutils literal notranslate"><span class="pre">CoalitionProbability</span></code></a><ul>
+<li><a class="reference internal" href="#derdava.coalition_probability.CoalitionProbability.get_probability"><code class="docutils literal notranslate"><span class="pre">CoalitionProbability.get_probability()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.coalition_probability.CoalitionProbability.simulate"><code class="docutils literal notranslate"><span class="pre">CoalitionProbability.simulate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derdava.coalition_probability.IndependentCoalitionProbability"><code class="docutils literal notranslate"><span class="pre">IndependentCoalitionProbability</span></code></a><ul>
+<li><a class="reference internal" href="#derdava.coalition_probability.IndependentCoalitionProbability.__init__"><code class="docutils literal notranslate"><span class="pre">IndependentCoalitionProbability.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.coalition_probability.IndependentCoalitionProbability.get_probability"><code class="docutils literal notranslate"><span class="pre">IndependentCoalitionProbability.get_probability()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.coalition_probability.IndependentCoalitionProbability.simulate"><code class="docutils literal notranslate"><span class="pre">IndependentCoalitionProbability.simulate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derdava.coalition_probability.RandomCoalitionProbability"><code class="docutils literal notranslate"><span class="pre">RandomCoalitionProbability</span></code></a><ul>
+<li><a class="reference internal" href="#derdava.coalition_probability.RandomCoalitionProbability.__init__"><code class="docutils literal notranslate"><span class="pre">RandomCoalitionProbability.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.coalition_probability.RandomCoalitionProbability.get_probability"><code class="docutils literal notranslate"><span class="pre">RandomCoalitionProbability.get_probability()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.coalition_probability.RandomCoalitionProbability.simulate"><code class="docutils literal notranslate"><span class="pre">RandomCoalitionProbability.simulate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-derdava.data_source">derdava.data_source module</a><ul>
+<li><a class="reference internal" href="#derdava.data_source.add_classification_noise"><code class="docutils literal notranslate"><span class="pre">add_classification_noise()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.data_source.generate_random_data_sources"><code class="docutils literal notranslate"><span class="pre">generate_random_data_sources()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-derdava.dataset">derdava.dataset module</a><ul>
+<li><a class="reference internal" href="#derdava.dataset.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-derdava.model_utility">derdava.model_utility module</a><ul>
+<li><a class="reference internal" href="#derdava.model_utility.IClassificationModel"><code class="docutils literal notranslate"><span class="pre">IClassificationModel</span></code></a><ul>
+<li><a class="reference internal" href="#derdava.model_utility.IClassificationModel.__init__"><code class="docutils literal notranslate"><span class="pre">IClassificationModel.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.model_utility.IClassificationModel.get_utility"><code class="docutils literal notranslate"><span class="pre">IClassificationModel.get_utility()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derdava.model_utility.ICoalitionalValue"><code class="docutils literal notranslate"><span class="pre">ICoalitionalValue</span></code></a><ul>
+<li><a class="reference internal" href="#derdava.model_utility.ICoalitionalValue.__init__"><code class="docutils literal notranslate"><span class="pre">ICoalitionalValue.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.model_utility.ICoalitionalValue.get_utility"><code class="docutils literal notranslate"><span class="pre">ICoalitionalValue.get_utility()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derdava.model_utility.ISymmetricClassificationModel"><code class="docutils literal notranslate"><span class="pre">ISymmetricClassificationModel</span></code></a><ul>
+<li><a class="reference internal" href="#derdava.model_utility.ISymmetricClassificationModel.__init__"><code class="docutils literal notranslate"><span class="pre">ISymmetricClassificationModel.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.model_utility.ISymmetricClassificationModel.get_utility"><code class="docutils literal notranslate"><span class="pre">ISymmetricClassificationModel.get_utility()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derdava.model_utility.ModelUtilityFunction"><code class="docutils literal notranslate"><span class="pre">ModelUtilityFunction</span></code></a><ul>
+<li><a class="reference internal" href="#derdava.model_utility.ModelUtilityFunction.get_utility"><code class="docutils literal notranslate"><span class="pre">ModelUtilityFunction.get_utility()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#derdava.model_utility.model_gaussian_nb"><code class="docutils literal notranslate"><span class="pre">model_gaussian_nb()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.model_utility.model_knn"><code class="docutils literal notranslate"><span class="pre">model_knn()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.model_utility.model_linear_svm"><code class="docutils literal notranslate"><span class="pre">model_linear_svm()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.model_utility.model_logistic_regression"><code class="docutils literal notranslate"><span class="pre">model_logistic_regression()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.model_utility.model_ridge_classifier"><code class="docutils literal notranslate"><span class="pre">model_ridge_classifier()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-derdava.sampling">derdava.sampling module</a><ul>
+<li><a class="reference internal" href="#derdava.sampling.check_gelman_rubin"><code class="docutils literal notranslate"><span class="pre">check_gelman_rubin()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.sampling.cvar"><code class="docutils literal notranslate"><span class="pre">cvar()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.sampling.gelman_rubin"><code class="docutils literal notranslate"><span class="pre">gelman_rubin()</span></code></a></li>
+<li><a class="reference internal" href="#derdava.sampling.zot_sampling"><code class="docutils literal notranslate"><span class="pre">zot_sampling()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
